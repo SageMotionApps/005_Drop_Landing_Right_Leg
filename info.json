@@ -1,0 +1,130 @@
+{
+  "user_guide_file": "Drop Land Right Leg App Guide.pdf",
+  "app_name": "Drop Land Right Leg",
+  "app_description": "Measure and train knee flexion angle, trunk side angle, and trunk forward angle during single right leg drop landing <br><br>Nodes Required: 5 <br> -Sensing (3): shank (lateral, switch pointing up), thigh (lateral, switch pointing up), trunk (back, switch pointing up) <br> -Feedback (2): min feedback, max feedback",
+  "app_id": "005",
+  "app_version": "1_1",
+  "version_id": "00511",
+  "validated_version_range": [
+    "3.10.0",
+    "4.1.0"
+  ],
+  "parameters_setting": [
+    [
+      "Feedback Setting",
+      {
+        "source": "feedback_enabled",
+        "title": "Enable Feedback",
+        "type": "bool",
+        "description": "Enable/Disable feedback"
+      },
+      {
+        "source": "whichFeedbackMeasurement",
+        "title": "Which Feedback Measurement?",
+        "type": "combo",
+        "validation": [
+          "Trunk Side Angle",
+          "Trunk Front Angle",
+          "Right Knee Flexion Angle",
+          "Right Knee Adduction Angle"
+        ],
+        "description": "specify measurement angle for haptic feedback"
+      },
+      {
+        "source": "min_threshold",
+        "title": "Min Threshold Angle",
+        "type": "float",
+        "description": "Minimum threshold angle"
+      },
+      {
+        "source": "max_threshold",
+        "title": "Max Threshold Angle",
+        "type": "float",
+        "description": "Maximum threshold angle"
+      },
+      {
+        "source": "feedback_delay",
+        "title": "Delay Time before Feedback (sec)",
+        "type": "float",
+        "description": "How long to wait after jump trial before giving haptic feedback pulse"
+      }
+    ],
+    [
+      "Save Options",
+      {
+        "source": "save_mode",
+        "title": "Save Mode",
+        "type": "combo",
+        "validation": [
+          "csv",
+          "h5",
+          "xlsx"
+        ],
+        "description": "Save file in specified format"
+      }
+    ]
+  ],
+  "user_fields": [
+    {
+      "name": "time",
+      "data_type": "float",
+      "size": 1
+    },
+    {
+      "name": "landphase",
+      "data_type": "int",
+      "size": 1
+    },
+    {
+      "name": "TSA",
+      "data_type": "float",
+      "size": 1
+    },
+    {
+      "name": "TFA",
+      "data_type": "float",
+      "size": 1
+    },
+    {
+      "name": "KFA",
+      "data_type": "float",
+      "size": 1
+    },
+    {
+      "name": "KAA",
+      "data_type": "float",
+      "size": 1
+    },
+    {
+      "name": "min_threshold",
+      "data_type": "float",
+      "size": 1
+    },
+    {
+      "name": "max_threshold",
+      "data_type": "float",
+      "size": 1
+    },
+    {
+      "name": "min_feedback_state",
+      "data_type": "int",
+      "size": 1
+    },
+    {
+      "name": "max_feedback_state",
+      "data_type": "int",
+      "size": 1
+    }
+  ],
+  "sensors": [
+    "shank",
+    "thigh",
+    "trunk"
+  ],
+  "feedback": [
+    "min feedback",
+    "max feedback"
+  ],
+  "pulse_length": 0.5,
+  "datarate": 100
+}

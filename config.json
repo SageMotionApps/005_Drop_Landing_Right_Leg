@@ -1,0 +1,14 @@
+{
+	"feedback_enabled": false,
+	"whichFeedbackMeasurement": "Trunk Front Angle",
+    "min_threshold": 5,
+    "max_threshold": 10,
+    "feedback_delay": 0.03,
+	"last_connect_feedback": [
+    ],
+	"last_connect_sensors": [
+	],
+	"local_time": "2024-01-01 01:00:00",
+	"save_mode": "xlsx",
+	"trial_name": "right_leg_drop_trial_1"
+}
