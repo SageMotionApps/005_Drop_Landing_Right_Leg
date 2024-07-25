@@ -104,8 +104,8 @@ class Core(BaseApp):
         landphase_last = self.landphase
 
         # Calculate unadjusted angles
-        TSA_unadjusted = self.trunk_quat.calculateVerticalSwayAngle()
-        TFA_unadjusted = self.trunk_quat.calculateFrontalSwayAngle()
+        TSA_unadjusted = self.trunk_quat.calculateTrunkSwayAngle()
+        TFA_unadjusted = self.trunk_quat.calculateTrunkFlexionAngle()
 
         shank_FrontAngle_unadjusted = self.shank_quat.calculate_FrontAngle("right")
         thigh_FrontAngle_unadjusted = self.thigh_quat.calculate_FrontAngle("right")

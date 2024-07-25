@@ -18,7 +18,7 @@ class Quaternion:
     def __str__(self):
         return f"Quaternion({self.w}, {self.x}, {self.y}, {self.z})"
 
-    def calculateVerticalSwayAngle(self):
+    def calculateTrunkSwayAngle(self):
         """
         This will calculate the Rotation Z->Y->Z for a node that that is switch pointing up.
         Note: This is about the z-axis (axis out of IMU board)
@@ -28,15 +28,14 @@ class Quaternion:
         t1 = -2 * (self.x * self.z - self.w * self.y)
 
         sway = np.arctan2(t0, t1)  # in radians
-        verticalsway = (
+        trunk_sway = (
             sway * 180 / 3.14159 - 90
         )  # in deg and adjusted for attaching to the back
-        verticalsway = -verticalsway  # adjust for sign convention
+        trunk_sway = -trunk_sway  # adjust for sign convention
 
-        # this_angle is corresponding to the sway angle when the sensor is kept vertical with switch pointing up
-        return verticalsway
+        return trunk_sway
 
-    def calculateFrontalSwayAngle(self):
+    def calculateTrunkFlexionAngle(self):
         """
         This will calculate the Rotation Z->Y->X for a node that that is switch pointing up.
         Note: This is about the x-axis (axis along short edge of IMU board)
@@ -51,10 +50,9 @@ class Quaternion:
         res0 = (
             res0 * 180 / 3.14159 - 90
         )  # in deg and adjusted for alignment on the back
-        frontalsway = -res0  # adjust for sign convention
+        trunk_flexion = -res0  # adjust for sign convention
 
-        # this_angle is corresponding to the sway angle when the sensor is kept vertical with switch pointing up
-        return frontalsway
+        return trunk_flexion
 
     def calculate_FrontAngle(self, leftORright="Right"):
         # Calculate the Shank or Thigh Forward Angle, about the z-axis (axis out of IMU board)
