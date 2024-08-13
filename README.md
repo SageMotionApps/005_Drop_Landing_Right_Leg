@@ -14,8 +14,6 @@ Measure and train knee flexion angle, trunk side angle, and trunk forward angle 
 ### Algorithm Information
 The raw quaternions from the IMU are converted to Euler angles, and the roll angle is extracted using well established mathematical principles. If you'd like to learn more about quaternion to Euler angles calculations, we suggest starting with this Wikipedia page: [Conversion between quaternions and Euler angles](https://en.wikipedia.org/wiki/Conversion_between_quaternions_and_Euler_angles)
 
-**@RTnhN -- Should we add more in here about the actual algorithm used for calculation?**
-
 ### Calibration Process:
 The participant should be standing vertically upright, No other initial static calibration is performed to compensate for misalignment with the segments.
 
